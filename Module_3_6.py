@@ -28,7 +28,9 @@ def calculate_structure_sum(data_structure):
             sum += len(data_structure)
     elif isinstance(data_structure, (int, float)):
             sum += data_structure
-
+    elif isinstance(data_structure, set):
+        for n in data_structure:
+            sum += calculate_structure_sum(n)
     return sum
 
 res= calculate_structure_sum(data_structure)
